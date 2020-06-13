@@ -1,5 +1,5 @@
 # Serverless URL MEMORIZER
-The application allows to insert an URL (validated only for non nullity) to store it and to optionally attach an image to the record. Some URLs can be marked as prioritized and are displayed before the others.
+The application allows to insert an URL (validated only for non nullity) to store it and to optionally attach an image to the record. Some URLs can be marked as prioritized.
 The application has a React front-end and a Node.js back-end deployed on AWS and using Lambda functions. It stores metadata and texts in DynamoDB tables and objects in S3.
 The project has its roots in the C4 final Serverless Todo project from which it stems to explore other features both backend and frontend.
 The calls are authenticated through the Auth0 identificaion service.
