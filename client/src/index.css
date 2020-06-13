@@ -12,3 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.blue-with-padding {
+  padding: 5px !important;
+  background: blue;
+}
+
+.yellow-with-large-padding {
+  padding: 70px !important;
+  background: yellow;
+}
+.four-hundred-width {
+  width: 400px;
+}
+
+.wrappingtext {
+  width: 768px;
+}

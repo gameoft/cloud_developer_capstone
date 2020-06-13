@@ -48,7 +48,7 @@ export async function createNews(
 }
 
 export async function deleteNews(event: APIGatewayProxyEvent) {
-  const newsId = event.pathParameters.todoId
+  const newsId = event.pathParameters.newsId
 
   console.log('Delete news item: ', newsId)
 

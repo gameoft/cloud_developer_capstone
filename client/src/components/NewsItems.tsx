@@ -2,18 +2,19 @@ import dateFormat from 'dateformat'
 import { History } from 'history'
 import update from 'immutability-helper'
 import * as React from 'react'
+import '../index.css'
 import {
   Button,
+  Container,
+  TextArea,
   Checkbox,
   Divider,
   Grid,
   Header,
-  TextArea,
   Table,
   Icon,
   Input,
   Image,
-  Form,
   Loader
 } from 'semantic-ui-react'
 
@@ -103,6 +104,9 @@ export class NewsItems extends React.PureComponent<NewsProps, NewsState> {
   }
 
   render() {
+    // const divStyle = {
+    //   width: 80%;
+    // };
     return (
       <div>
         <Header as="h1">URL MEMORIZER</Header>
@@ -110,6 +114,7 @@ export class NewsItems extends React.PureComponent<NewsProps, NewsState> {
         {this.renderCreateNewsInput()}
 
         {/* <Header as='h3' block> Block Header </Header> */}
+
         {this.renderNews()}
       </div>
     )
@@ -160,12 +165,13 @@ export class NewsItems extends React.PureComponent<NewsProps, NewsState> {
 
   renderNewsList() {
     return (
-      <Table celled padded>
+      <Table celled padded unstackable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell singleLine>priority</Table.HeaderCell>
             <Table.HeaderCell></Table.HeaderCell>
             <Table.HeaderCell>Images</Table.HeaderCell>
+            <Table.HeaderCell>CreatedAt</Table.HeaderCell>
             <Table.HeaderCell>URL</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
@@ -198,83 +204,22 @@ export class NewsItems extends React.PureComponent<NewsProps, NewsState> {
                   </Button>
                 </Table.Cell>
                 <Table.Cell width={1} textAlign="center">
-                  {news.attachmentUrl && (
-                    <Image
-                      style={{ 'font-size': 48 }}
-                      avatar
-                      src={news.attachmentUrl}
-                      //size=""
-                      wrapped
-                    />
+                  {news.attachmentUrl != '' && (
+                    <Image size="small" src={news.attachmentUrl} />
                   )}
                 </Table.Cell>
-                <Table.Cell width={13} textAlign="left">
+                <Table.Cell>{news.createdAt}</Table.Cell>
+                <Table.Cell width={9} textAlign="left">
                   {' '}
-                  {news.description}
+                  <TextArea style={{ minHeight: 100 }}>
+                    {news.description}
+                  </TextArea>
                 </Table.Cell>
               </Table.Row>
             )
           })}
         </Table.Body>
       </Table>
-
-      // <Grid padded>
-      //   {this.state.news.map((news, pos) => {
-      //     return (
-      //       <Grid.Row key={news.newsId}>
-      //         <Grid.Column width={1} verticalAlign="middle">
-      //           <Checkbox
-      //             onChange={() => this.onNewsCheck(pos)}
-      //             checked={news.priority}
-      //           />
-      //         </Grid.Column>
-      //         <Grid.Column width={1} floated="left">
-      //           <Button
-      //             icon
-      //             color="blue"
-      //             onClick={() => this.onEditButtonClick(news.newsId)}
-      //           >
-      //             <Icon name="pencil" />
-      //           </Button>
-      //         </Grid.Column>
-      //         <Grid.Column width={1} floated="left">
-      //           <Button
-      //             icon
-      //             color="red"
-      //             onClick={() => this.onNewsDelete(news.newsId)}
-      //           >
-      //             <Icon name="delete" />
-      //           </Button>
-      //         </Grid.Column>
-
-      //         {/* <Form>
-      //           <TextArea width={13}> {news.description} </TextArea>
-      //         </Form> */}
-
-      //         <Grid.Column width={13} verticalAlign="middle" wrapped>
-      //           {news.description}
-      //         </Grid.Column>
-      //         {/* <Grid.Column width={3} floated="right">
-      //           {todo.dueDate}
-      //         </Grid.Column> */}
-
-      //         {news.attachmentUrl && (
-      //           <Image src={news.attachmentUrl} size="small" wrapped />
-      //         )}
-      //         <Grid.Column width={16}>
-      //           <Divider />
-      //         </Grid.Column>
-      //       </Grid.Row>
-      //     )
-      //   })}
-      // </Grid>
     )
   }
-
-  // calculateDueDate(): string {
-  //   const date = new Date()
-  //   date.setDate(date.getDate() + 7)
-
-  //   return dateFormat(date, 'yyyy-mm-dd') as string
-  // }
 }
