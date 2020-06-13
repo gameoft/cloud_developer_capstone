@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "news",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "boolean"
+    }
+  },
+  "required": ["description", "priority"],
+  "additionalProperties": false
+}
