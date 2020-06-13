@@ -47,7 +47,7 @@ It generates application level metrics
 
 ## Frontend
 
-The client application is already configured with the right parameters to access the dpeloyed AWS api. 
+The client application is already configured with the right parameters to access the deployed AWS api. 
 To run the React application run the following commands:
 
 ```
